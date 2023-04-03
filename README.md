@@ -19,12 +19,12 @@ The memory is meant to be used with a Haystack agent and is made of two main com
 - SaveToMemory method: This method is called in the agent chat wrapper method which is also part of the package. This method will append the final answer given by the Agent to the chat memory buffer.
 
 ## Examples
-</br>
-### python script example ###
+
+#### Python script example
 A working example file ```example.py``` is included with this repository. The example illustrates how to activate and use this basic agent memory using the seven wonders dataset, an ElasticSearch Document Store, and two tools: a Generative QA pipeline and the MemoryRecall Tool. The example also contains the adjusted prompt necessary to make the Agent access the memory looking for potential answers.</br>
 The Generative QA pipeline uses OpenAI's text-embedding-ada-002 as a retriever model, and davinci-003 as a generative model.
-</br>
-### jupyter notebook/ google colab example ###
+
+#### Jupyter notebook/ google colab example
 A notebook version of the example file code is also included in the repository.
 
 ## Credits
