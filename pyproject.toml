@@ -1,0 +1,27 @@
+[tool.pdm.build]
+
+[project]
+name = "HaystackAgentBasicMemory"
+version = "0.1.4"
+description = "Basic Memory library for Haystack NLP agents"
+authors = [
+    {name = "Florian Brand <github@florianbrand.ge>, Roland Tannous, Tuana Celik, recrudesce"}
+]
+dependencies = ["farm-haystack>=1.15.0"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rolandtannous/HaystackAgentBasicMemory"
+"Bug Tracker" = "https://github.com/rolandtannous/HaystackAgentBasicMemory/issues"
+
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
