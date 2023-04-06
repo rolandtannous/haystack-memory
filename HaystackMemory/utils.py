@@ -19,8 +19,10 @@ class RedisUtils:
                  host: str = "localhost",
                  port: int = 6379,
                  db: int = 0,
+                 expiration: int = 3600,
                  **kwargs):
         self.agent = agent
+        self.expiration = expiration
         self.redis = redis.StrictRedis(host=host, port=port, db=db, **kwargs)
         self.memory_id = memory_id
 
@@ -28,6 +30,7 @@ class RedisUtils:
                          result: dict):
         self.redis.rpush(self.memory_id, result["query"])
         self.redis.rpush(self.memory_id, result["answers"][0].answer)
+        self.redis.expire(self.memory_id, self.expiration)
 
     def chat(self,
              query: str):
