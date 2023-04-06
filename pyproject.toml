@@ -2,12 +2,12 @@
 
 [project]
 name = "HaystackAgentBasicMemory"
-version = "0.1.4"
+version = "0.2"
 description = "Basic Memory library for Haystack NLP agents"
 authors = [
     {name = "Florian Brand <github@florianbrand.de>, Roland Tannous, Tuana Celik, recrudesce"}
 ]
-dependencies = ["farm-haystack>=1.15.0"]
+dependencies = ["farm-haystack>=1.15.0", "redis>=4.5.4"]
 requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
