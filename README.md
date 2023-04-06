@@ -1,9 +1,6 @@
-# haystack-basic-memory
+# Haystack Memory
 
-POC Basic memory for [haystack](https://github.com/deepset-ai/haystack) Agents.
-This first version is a basic implementation that uses a python list which only persists for the duration of the current session but expires immediately thereafter.</br>
-The memory design will be upgraded to persist across sessions in later versions.
-
+Memory for [haystack](https://github.com/deepset-ai/haystack) Agents. Currently, the memory of agents can be used in memory or with redis. The latter supports a sliding window.
 
 ## Installation
 
@@ -80,19 +77,10 @@ redis_utils.chat("<Your Question>")
 
 ## Examples
 
-### Python script example
-A working example file ```example.py``` is included with this repository. 
-The example illustrates how to activate and use this basic agent memory using the seven wonders dataset, an ElasticSearch Document Store, and two tools: a Generative QA pipeline and the MemoryRecall Tool. The example also contains the adjusted prompt necessary to make the Agent access the memory looking for potential answers.</br>
-The Generative QA pipeline uses OpenAI's `text-embedding-ada-002` as a retriever model, and `text-davinci-003` as a generative model.
-
-An example `PromptTemplate` used for the `Agent` can be imported from `haystack_memory/prompt_templates`
-
-### Jupyter notebook/ google colab example
-A notebook version of the example file code is also included in the repository 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/Example.ipynb)
-
-## Credits
-Credits to [Stefano Fiorruci](https://github.com/anakin87) whose chatgpt implementation example was the basis of our basic memory template. 
+Examples can be found in the `examples/` folder. It contains the usage for all memory types.
+To open the examples in colab, click on the following links:
+- Basic Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/examples/example_basic_memory.ipynb)
+- Redis Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/examples/example_redis_memory.ipynb)
 
 
 
