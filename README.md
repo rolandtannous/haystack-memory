@@ -21,9 +21,9 @@ To use memory in your agent, you need two parts:
 ```py
 from haystack.agents import Agent, Tool
 from haystack.nodes import PromptNode
-from HaystackMemory.prompt_templates import memory_template
-from HaystackMemory.memory import MemoryRecallNode
-from HaystackMemory.utils import MemoryUtils
+from haystack_memory.prompt_templates import memory_template
+from haystack_memory.memory import MemoryRecallNode
+from haystack_memory.utils import MemoryUtils
 
 # Initialize the memory and the memory tool so the agent can retrieve the memory
 memory_database = []
@@ -51,9 +51,9 @@ The memory can also be stored in a redis database which makes it possible to use
 ```py
 from haystack.agents import Agent, Tool
 from haystack.nodes import PromptNode
-from HaystackMemory.memory import RedisMemoryRecallNode
-from HaystackMemory.prompt_templates import memory_template
-from HaystackMemory.utils import RedisUtils
+from haystack_memory.memory import RedisMemoryRecallNode
+from haystack_memory.prompt_templates import memory_template
+from haystack_memory.utils import RedisUtils
 
 # Initialize the memory and the memory tool so the agent can retrieve the memory
 redis_memory_node = RedisMemoryRecallNode(memory_id="agent_memory",
@@ -85,7 +85,7 @@ A working example file ```example.py``` is included with this repository.
 The example illustrates how to activate and use this basic agent memory using the seven wonders dataset, an ElasticSearch Document Store, and two tools: a Generative QA pipeline and the MemoryRecall Tool. The example also contains the adjusted prompt necessary to make the Agent access the memory looking for potential answers.</br>
 The Generative QA pipeline uses OpenAI's `text-embedding-ada-002` as a retriever model, and `text-davinci-003` as a generative model.
 
-An example `PromptTemplate` used for the `Agent` can be imported from `HaystackMemory/prompt_templates`
+An example `PromptTemplate` used for the `Agent` can be imported from `haystack_memory/prompt_templates`
 
 ### Jupyter notebook/ google colab example
 A notebook version of the example file code is also included in the repository 
