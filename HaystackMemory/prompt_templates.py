@@ -1,5 +1,7 @@
 from haystack.nodes import PromptTemplate
 
+# This a an example to be used with the memory tools to ensure that the agent is using the memory tools.
+# TODO: Further refine the template. Maybe consider few shots
 memory_template = PromptTemplate(
     name="memory-shot-react",
     prompt_text="You are a helpful and knowledgeable agent. To achieve your goal of answering complex questions "
