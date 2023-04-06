@@ -40,44 +40,18 @@ memory_agent.add_tool(memory_tool)
 ## Examples
 
 ### Python script example
-A working example file ```example.py``` is included with this repository. The example illustrates how to activate and use this basic agent memory using the seven wonders dataset, an ElasticSearch Document Store, and two tools: a Generative QA pipeline and the MemoryRecall Tool. The example also contains the adjusted prompt necessary to make the Agent access the memory looking for potential answers.</br>
+A working example file ```example.py``` is included with this repository. 
+The example illustrates how to activate and use this basic agent memory using the seven wonders dataset, an ElasticSearch Document Store, and two tools: a Generative QA pipeline and the MemoryRecall Tool. The example also contains the adjusted prompt necessary to make the Agent access the memory looking for potential answers.</br>
 The Generative QA pipeline uses OpenAI's `text-embedding-ada-002` as a retriever model, and `text-davinci-003` as a generative model.
 
-An exmaple `PromptTemplate` used for the `Agent` that you can also find in `example.py` and `Exmaple.ipynb` is:
-
-```
-agent_prompt = PromptTemplate(
-    name="memory-shot-react",
-    prompt_text="You are a helpful and knowledgeable agent. To achieve your goal of answering complex questions "
-                "correctly, you have access to the following tools:\n\n"
-                "{tool_names_with_descriptions}\n\n"
-                "To answer questions, you'll need to go through multiple steps involving step-by-step thinking and "
-                "selecting the appropriate tools and give them the question as input; tools will respond with observations.\n"
-                "Decide if the observations provided by the tool contains information needed to answer questions.\n"
-                "When you are ready for a final answer, respond with the Final Answer:\n\n"
-                "You should avoid knowledge that is present in your internal knowledge. You do not use prior knowledge, only the observations provided by the tools available to you"
-                "Use the following format:\n\n"
-                "Question: the question to be answered\n"
-                "Thought: Reason if you have the final answer. If yes, answer the question. If not, find out the missing information needed to answer it.\n"
-                "Tool: pick one of {tool_names}. Always access the Memory tool first \n"
-                "Tool Input: the full updated question to be answered\n"
-                "Observation: the tool will respond with the observation\n"
-                "...\n"
-                "Final Answer: the final answer to the question\n\n"
-                "Thought, Tool, Tool Input, and Observation steps can be repeated multiple times, but sometimes we can find an answer in the first pass\n"
-                "---\n\n"
-                "Question: {query}\n"
-                "Thought: Let's think step-by-step, I first need to ",
-    
-)
-```
+An example `PromptTemplate` used for the `Agent` can be imported from `HaystackMemory/prompt_templates`
 
 ### Jupyter notebook/ google colab example
 A notebook version of the example file code is also included in the repository 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/Example.ipynb)
 
 ## Credits
-credits to [Stefano Fiorruci](https://github.com/anakin87) whose chatgpt implementation example was the basis of our basic memory template. 
+Credits to [Stefano Fiorruci](https://github.com/anakin87) whose chatgpt implementation example was the basis of our basic memory template. 
 
 
 
