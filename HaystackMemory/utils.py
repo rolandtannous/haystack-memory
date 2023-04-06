@@ -1,15 +1,22 @@
+from typing import List
 import redis
 from haystack.agents.base import Agent
 
 
-def chat(query: str, main_agent: Agent, memory_database: list):
-    result = main_agent.run(query)
-    save_to_memory(result, memory_database)
+class MemoryUtils:
+    def __init__(self,
+                 agent: Agent,
+                 memory_database: List[str]):
+        self.memory_database = memory_database
+        self.agent = agent
 
+    def __save_to_memory(self, result: dict):
+        self.memory_database.append(result["query"])
+        self.memory_database.append(result["answers"][0].answer)
 
-def save_to_memory(result: dict, memory_database: list):
-    memory_database.append(result["query"])
-    memory_database.append(result["answers"][0].answer)
+    def chat(self, query: str):
+        result = self.agent.run(query)
+        self.__save_to_memory(result)
 
 
 class RedisUtils:
