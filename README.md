@@ -14,28 +14,69 @@ The memory design will be upgraded to persist across sessions in later versions.
 
 ## Usage
 
-The memory is meant to be used with a Haystack agent and is made of two main components:
-- MemoryRecallNode tool: To access this method do </br>```from HaystackAgentBasicMemory.MemoryRecallNode import MemoryRecallNode```</br> The method should be initialized with the python list variable that will serve as memory buffer like this:</br> ```memory_node = MemoryRecallNode(memory=memory_database)``` and then defined as and added as an agent tool using the Agent ```Tool``` and  ```add_tool``` methods. The agent's prompt text should also be adjusted n a way such that the agent is instructed/prompted to always check in the Memory first by calling this tool.
-- SaveToMemory method: This method is called in the agent chat wrapper method which is also part of the package. This method will append the final answer given by the Agent to the chat memory buffer.
+To use memory in your agent, you need two parts:
+- `MemoryRecallNode`: This node is passed to the agent to be used as a tool. It will be passed to the agent to let it remember the conversation.
+- `MemoryUtils`: This class has to be used to save the query and the answers to the memory.
 
-A very simple example of this is:
-
-```
+```py
 from haystack.agents import Agent, Tool
-from haystack.nodes import PromptTemplate, PromptNode
-from HaystackAgentBasicMemory.MemoryRecallNode import MemoryRecallNode
+from haystack.nodes import PromptNode
+from HaystackMemory.prompt_templates import memory_template
+from HaystackMemory.memory import MemoryRecallNode
+from HaystackMemory.utils import MemoryUtils
 
+# Initialize the memory and the memory tool so the agent can retrieve the memory
 memory_database = []
-memory_node = MemoryRecallNode(memory_database)
+memory_node = MemoryRecallNode(memory=memory_database)
 memory_tool = Tool(name="Memory",
                    pipeline_or_node=memory_node,
                    description="Your memory. Always access this tool first to remember what you have learned.")
 
-
-prompt_node = PromptNode(model_name_or_path="text-davinci-003", api_key=YOUR_OPENAI_KEY, max_length=512, stop_words=["Observation:"])
-memory_agent = Agent(prompt_node=prompt_node, prompt_template=AN_AGENT_PROMPT_TEMPLATE)
+prompt_node = PromptNode(model_name_or_path="text-davinci-003", 
+                         api_key="<YOUR_OPENAI_KEY>", 
+                         max_length=1024,
+                         stop_words=["Observation:"])
+memory_agent = Agent(prompt_node=prompt_node, prompt_template=memory_template)
 memory_agent.add_tool(memory_tool)
+
+# Initialize the utils to save the query and the answers to the memory
+memory_utils = MemoryUtils(memory_database=memory_database, agent=memory_agent)
+memory_utils.chat("<Your Question>")
 ```
+
+### Redis
+
+The memory can also be stored in a redis database which makes it possible to use different memories at the same time to be used with multiple agents. Additionally, it supports a sliding window to only utilize the last messages.
+
+```py
+from haystack.agents import Agent, Tool
+from haystack.nodes import PromptNode
+from HaystackMemory.memory import RedisMemoryRecallNode
+from HaystackMemory.prompt_templates import memory_template
+from HaystackMemory.utils import RedisUtils
+
+# Initialize the memory and the memory tool so the agent can retrieve the memory
+redis_memory_node = RedisMemoryRecallNode(memory_id="agent_memory",
+                                          host="localhost",
+                                          port=6379,
+                                          db=0)
+memory_tool = Tool(name="Memory",
+                   pipeline_or_node=redis_memory_node,
+                   description="Your memory. Always access this tool first to remember what you have learned.")
+prompt_node = PromptNode(model_name_or_path="text-davinci-003",
+                         api_key="<YOUR_OPENAI_KEY>",
+                         max_length=1024,
+                         stop_words=["Observation:"])
+memory_agent = Agent(prompt_node=prompt_node, prompt_template=memory_template)
+# Initialize the utils to save the query and the answers to the memory
+redis_utils = RedisUtils(agent=memory_agent,
+                         memory_id="agent_memory",
+                         host="localhost",
+                         port=6379,
+                         db=0)
+redis_utils.chat("<Your Question>")
+```
+
 
 ## Examples
 
