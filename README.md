@@ -4,8 +4,8 @@ Memory for [haystack](https://github.com/deepset-ai/haystack) Agents. Currently,
 
 ## Installation
 
-- Python pip: ```python3 -m pip install``` . This package will attempt to install the dependencies (farm-haystack>=1.15.0)
-- Python pip (skip dependency installation: Use  ```python3 -m pip install --no-deps```
+- Python pip: ```python3 -m pip install haystack-memory``` . This package will attempt to install the dependencies (farm-haystack>=1.15.0)
+- Python pip (skip dependency installation: Use  ```python3 -m pip install haystack-memory --no-deps```
 - Using git: ```pip install git+https://github.com/rolandtannous/HaystackAgentBasicMemory.git@main#egg=HaystackAgentBasicMemory```
 
 

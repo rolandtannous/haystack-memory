@@ -1,14 +1,14 @@
 [tool.pdm.build]
 
 [project]
-name = "HaystackAgentBasicMemory"
-version = "0.2"
+name = "haystack_memory"
+version = "0.3"
 description = "Basic Memory library for Haystack NLP agents"
 authors = [
     {name = "Florian Brand <github@florianbrand.de>, Roland Tannous, Tuana Celik, recrudesce"}
 ]
-dependencies = ["farm-haystack>=1.15.0", "redis>=4.5.4"]
-requires-python = ">=3.10"
+dependencies = ["farm-haystack>=1.15.0", "redis"]
+requires-python = ">=3.9.16"
 readme = "README.md"
 license = {text = "MIT"}
 classifiers = [
@@ -18,8 +18,8 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/rolandtannous/HaystackAgentBasicMemory"
-"Bug Tracker" = "https://github.com/rolandtannous/HaystackAgentBasicMemory/issues"
+"Homepage" = "https://github.com/rolandtannous/haystack-memory"
+"Bug Tracker" = "https://github.com/rolandtannous/haystack-memory/issues"
 
 
 [build-system]
