@@ -4,7 +4,7 @@ Memory for [Haystack](https://github.com/deepset-ai/haystack) Agents. Currently,
 
 ## Installation
 
-- Python pip: ```python3 -m pip install haystack-mmeory``` . This package will attempt to install the dependencies (farm-haystack>=1.15.0, redis)
+- Python pip: ```python3 -m pip install haystack-memory``` . This package will attempt to install the dependencies (farm-haystack>=1.15.0, redis)
 - Python pip (skip dependency installation: Use  ```python3 -m pip install haystack-memory --no-deps```
 - Using git: ```pip install git+https://github.com/rolandtannous/HaystackAgentBasicMemory.git@main#egg=haystack-memory```
 
@@ -79,8 +79,8 @@ redis_utils.chat("<Your Question>")
 
 Examples can be found in the `examples/` folder. It contains the usage for all memory types.
 To open the examples in colab, click on the following links:
-- Basic Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/examples/example_basic_memory.ipynb)
-- Redis Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/examples/example_redis_memory.ipynb)
+- Basic Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/haystack-memory/blob/main/examples/example_basic_memory.ipynb)
+- Redis Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/haystack-memory/blob/main/examples/example_redis_memory.ipynb)
 
 
 
