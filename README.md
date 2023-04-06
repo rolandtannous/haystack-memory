@@ -1,11 +1,11 @@
 # Haystack Memory
 
-Memory for [haystack](https://github.com/deepset-ai/haystack) Agents. Currently, the memory of agents can be used in memory or with redis. The latter supports a sliding window.
+Memory for [Haystack](https://github.com/deepset-ai/haystack) Agents. Currently, the memory of agents can be used in memory or with redis. The latter supports a sliding window.
 
 ## Installation
 
-- Python pip: ```python3 -m pip install haystack-memory``` . This package will attempt to install the dependencies (farm-haystack>=1.15.0)
-- Python pip (skip dependency installation: Use  ```python3 -m pip install haystack-memory --no-deps```
+- Python pip: ```python3 -m pip install``` . This package will attempt to install the dependencies (farm-haystack>=1.15.0)
+- Python pip (skip dependency installation: Use  ```python3 -m pip install --no-deps```
 - Using git: ```pip install git+https://github.com/rolandtannous/HaystackAgentBasicMemory.git@main#egg=HaystackAgentBasicMemory```
 
 
