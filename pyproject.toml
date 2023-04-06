@@ -5,7 +5,7 @@ name = "HaystackAgentBasicMemory"
 version = "0.1.4"
 description = "Basic Memory library for Haystack NLP agents"
 authors = [
-    {name = "Florian Brand <github@florianbrand.ge>, Roland Tannous, Tuana Celik, recrudesce"}
+    {name = "Florian Brand <github@florianbrand.de>, Roland Tannous, Tuana Celik, recrudesce"}
 ]
 dependencies = ["farm-haystack>=1.15.0"]
 requires-python = ">=3.10"
