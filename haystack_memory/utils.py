@@ -17,6 +17,7 @@ class MemoryUtils:
     def chat(self, query: str):
         result = self.agent.run(query)
         self.__save_to_memory(result)
+        return result, self.memory_database
 
 
 class RedisUtils:
@@ -66,3 +67,4 @@ class RedisUtils:
         """
         result = self.agent.run(query)
         self.__save_to_memory(result)
+        return result, self.memory_database

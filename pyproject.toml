@@ -2,7 +2,7 @@
 
 [project]
 name = "haystack_memory"
-version = "0.3"
+version = "0.5"
 description = "Basic Memory library for Haystack NLP agents"
 authors = [
     {name = "Florian Brand <github@florianbrand.de>, Roland Tannous, Tuana Celik, recrudesce"}
