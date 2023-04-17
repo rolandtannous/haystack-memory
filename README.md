@@ -9,7 +9,7 @@ a human's brief sensory memory, lasting only for the duration of one interaction
 
 - Python pip: ```pip install --upgrade haystack-memory``` . This method will attempt to install the dependencies (farm-haystack>=1.15.0, redis)
 - Python pip (skip dependency installation): Use  ```pip install --upgrade haystack-memory --no-deps```
-- Using git: ```pip install git+https://github.com/rolandtannous/HaystackAgentBasicMemory.git@main#egg=HaystackAgentBasicMemory```
+- Using git: ```pip install git+https://github.com/rolandtannous/haystack-memory.git@main#egg=haystack-memory```
 
 
 ## Usage
