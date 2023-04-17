@@ -1,19 +1,20 @@
 # Haystack Memory
 
-Memory for [Haystack](https://github.com/deepset-ai/haystack) Agents. Currently, the memory of agents can be used in memory or with redis. The latter supports a sliding window. 
+Memory for [haystack](https://github.com/deepset-ai/haystack) Agents. Currently, the memory for agents can be used in-memory or using redis. The latter supports a sliding window.
 
 ## Installation
 
-- Python pip: ```python3 -m pip install haystack-memory``` . This package will attempt to install the dependencies (farm-haystack>=1.15.0, redis)
-- Python pip (skip dependency installation: Use  ```python3 -m pip install haystack-memory --no-deps```
-- Using git: ```pip install git+https://github.com/rolandtannous/HaystackAgentBasicMemory.git@main#egg=haystack-memory```
+- Python pip: ```pip install --upgrade haystack-memory``` . This method will attempt to install the dependencies (farm-haystack>=1.15.0, redis)
+- Python pip (skip dependency installation): Use  ```pip install --upgrade haystack-memory --no-deps```
+- Using git: ```pip install git+https://github.com/rolandtannous/HaystackAgentBasicMemory.git@main#egg=HaystackAgentBasicMemory```
 
 
 ## Usage
 
-To use memory in your agent, you need two parts:
-- `MemoryRecallNode`: This node is passed to the agent to be used as a tool. It will be passed to the agent to let it remember the conversation.
-- `MemoryUtils`: This class has to be used to save the query and the answers to the memory.
+To use memory in your agent, you need two components:
+- `MemoryRecallNode`: This node is added to the agent as a tool. It will allow the agent to remember the conversation and make query-memory associations.
+- `MemoryUtils`: This class should be used to save the queries and the final agent answers to the conversation memory.
+- `chat`: This is a method of the MemoryUtils class. It is used to chat with the agent. It will save the query and the answer to the memory. It also returns the full result and the updated conversation memory for further usage.
 
 ```py
 from haystack.agents import Agent, Tool
@@ -38,7 +39,7 @@ memory_agent.add_tool(memory_tool)
 
 # Initialize the utils to save the query and the answers to the memory
 memory_utils = MemoryUtils(memory_database=memory_database, agent=memory_agent)
-memory_utils.chat("<Your Question>")
+result, conversation_memory = memory_utils.chat("<Your Question>")
 ```
 
 ### Redis
@@ -71,7 +72,7 @@ redis_utils = RedisUtils(agent=memory_agent,
                          host="localhost",
                          port=6379,
                          db=0)
-redis_utils.chat("<Your Question>")
+result, conversation_memory = redis_utils.chat("<Your Question>")
 ```
 
 
@@ -79,8 +80,8 @@ redis_utils.chat("<Your Question>")
 
 Examples can be found in the `examples/` folder. It contains the usage for all memory types.
 To open the examples in colab, click on the following links:
-- Basic Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/haystack-memory/blob/main/examples/example_basic_memory.ipynb)
-- Redis Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/haystack-memory/blob/main/examples/example_redis_memory.ipynb)
+- Basic Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/examples/example_basic_memory.ipynb)
+- Redis Memory: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rolandtannous/HaystackAgentBasicMemory/blob/main/examples/example_redis_memory.ipynb)
 
 
 
