@@ -1,6 +1,6 @@
 # Haystack Memory
 
-Memory for [haystack](https://github.com/deepset-ai/haystack) Agents. The library implements a working memory that stores the agent's conversation memory 
+Memory for [Haystack](https://github.com/deepset-ai/haystack) Agents. The library implements a working memory that stores the agent's conversation memory 
 and a sensory memory that stores the agent's short-term sensory memory. The working memory can be utilized in-memory or through Redis, with the 
 Redis implementation featuring a sliding window. On the other hand, the sensory memory is an in-memory implementation that mimics 
 a human's brief sensory memory, lasting only for the duration of one interaction.. 
