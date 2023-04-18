@@ -82,7 +82,7 @@ class RedisUtils:
             self.redis.expire(self.memory_id, self.expiration)
             self.__expiration_is_set = True
         self.redis.rpush(self.memory_id, result["query"])
-        self.__transfer_sensory_memory()
+        self.__transfer_sensory_memory(result)
         self.redis.rpush(self.memory_id, result["answers"][0].answer)
 
     def chat(self,
