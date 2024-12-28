@@ -1,3 +1,8 @@
+# Deprecation Notice
+
+
+This package is now deprecated and has not been maintained for a while. Please refer to the original Haystack repo for more up to date implementations of the same at [haystack](https://github.com/deepset-ai/haystack).
+
 # Haystack Memory
 
 Memory for [Haystack](https://github.com/deepset-ai/haystack) Agents. The library implements a working memory that stores the agent's conversation memory 
